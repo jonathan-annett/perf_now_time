@@ -5,14 +5,15 @@
     "email": "jonathan.max.annett@gmail.com"
   },
   "contributors": [],
-  "description": "newly created repo",
+  "description": "wraps performance.now for function call timing",
   "license": "MIT",
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
+    "express": "^4.17.1",
+    "get-localhost-hostname": "github:jonathan-annett/get-localhost-hostname"
   },
-  "devDependencies": {},
   "scripts": {},
-  "keywords": [
-  ],
+  "keywords": [],
   "main": "index.js",
   "name": "perf_now_time",
   "repository": {

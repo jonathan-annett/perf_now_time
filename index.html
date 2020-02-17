@@ -1,0 +1,24 @@
+<html>
+<head>
+    <script src="index.js"></script>
+</head>
+<body>
+    <div id="output"></div>
+    <script language="javascript">
+    
+        var perf_iterative = performance_now()();
+        var perf_reduce = performance_now(false)();
+        
+        setInterval(function(){
+            
+            var red= perf_reduce(),iter=perf_iterative();
+            
+            document.getElementById("output").innerHTML=
+                "perf_reduce="+red+"<br>"+
+                "perf_iterative="+iter;
+
+        },1000);
+        
+    </script>
+</body>
+</html>
