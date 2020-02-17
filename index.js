@@ -2,13 +2,16 @@ var performance_now = get_perf_now(typeof require==='function' && typeof require
 
 function get_perf_now(nodeJs) {
     var res = function (iterative) {
-        return iterative!==false ? performance_now_iterative(nodeJs) : performance_now_map_reduce(nodeJs);
+        var mod= iterative!==false ? performance_now_iterative(nodeJs) : performance_now_map_reduce(nodeJs);
+        if (nodeJs) {
+            mod.express=function(express,app) {
+               app.use("/perf_now_time.js",express.static(__filename));  
+               app.use("/perf_now_time",express.static(__dirname));  
+            };
+        }
+        return mod;
     };
     if (nodeJs) {
-        res.express=function(express,app) {
-           app.use("/perf_now_time.js",express.static(__filename));  
-           app.use("/perf_now_time",express.static(__dirname));  
-        };
         module.exports=res;
     }
     return res;
