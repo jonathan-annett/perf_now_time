@@ -2,4 +2,11 @@
 
 wraps performance.now for function call timing
 
-node-
+installation
+
+    npm install github:jonathan-annett/perf_now_time
+    
+
+see node-js-demo.js for a simple browser based demo
+
+

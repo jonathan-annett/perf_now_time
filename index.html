@@ -8,16 +8,36 @@
     
         var perf_iterative = performance_now()();
         var perf_reduce = performance_now(false)();
+        var output = document.getElementById("output");
         
         setInterval(function(){
             
             var red= perf_reduce(),iter=perf_iterative();
             
-            document.getElementById("output").innerHTML=
+            output.innerHTML=
                 "perf_reduce="+red+"<br>"+
                 "perf_iterative="+iter;
 
-        },1000);
+        },3000);
+        
+        function thing1(){ output.innerHTML = "hello world";}
+        
+        function thing2 (msg,cb){ 
+            setTimeout(cb,1000,msg);
+        }
+        
+        perf_iterative.time("thing",thing1);
+            
+        perf_iterative.time_cb(
+            
+            "thing2",
+            
+            thing2,"hello world (*after cb ) ",function cb( msg ) {
+                output.innerHTML=msg;
+            }
+        );  
+            
+      
         
     </script>
 </body>
