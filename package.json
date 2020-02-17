@@ -10,7 +10,7 @@
   "dependencies": {},
   "devDependencies": {
     "express": "^4.17.1",
-    "get-localhost-hostname": "github:jonathan-annett/get-localhost-hostname"
+    "get-localhost-hostname": "github:jonathan-annett/get-localhost-hostname#aebfa41a502e51c000538d71a9e2cd102b6dd0d2"
   },
   "scripts": {},
   "keywords": [],

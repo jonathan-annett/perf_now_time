@@ -1,15 +1,12 @@
 try {
     var 
     express=require("express"),
-    app=express(),
-    hostname=require('get-localhost-hostname');
+    app=express();
+    
     require("./index.js").express(express,app);
-    var listener = app.listen(0,function(){
-        var url="http://"+hostname+":"+listener.address().port+"/perf_now_time"
-        console.log("goto to "+url);
-        require("child_process").spawn("xdg-open",[url]);
-    });
-
+    
+    require('get-localhost-hostname/start-browser.js')(app,0,"/perf_now_time");
+    
 } catch(e) {
     if (e.code==='MODULE_NOT_FOUND') { 
         console.log("do 'npm install' first");
